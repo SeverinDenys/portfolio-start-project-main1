@@ -1,20 +1,22 @@
 import React from 'react';
 import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle";
-import {Menu} from "../../../components/menu/Menu";
+import {TabMenu} from "./tabMenu/TabMenu";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Work} from "./work/Work";
 import socialImg from './../../../assets/images/proj-1.webp'
 import timerImg from './../../../assets/images/proj-2.webp'
+import {Container} from "../../../components/Container";
 
 const worksItems = ["All","Landing Page","React","Spa"]
 
 export const Works = () => {
     return (
         <StyledWorks>
+            <Container>
             <SectionTitle>My Works</SectionTitle>
-            <Menu menuItems={worksItems}/>
-            <FlexWrapper justify={"space-around"}>
+            <TabMenu menuItems={worksItems}/>
+            <FlexWrapper justify={"space-between"} align={'flex-start'}>
                 <Work title={'Social Network'}
                       src={socialImg}
                       text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sollicitudin tempor id eu nisl nunc mi ipsum. Ut etiam sit amet nisl purus in."}/>
@@ -22,11 +24,11 @@ export const Works = () => {
                       src={timerImg}
                       text={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sollicitudin tempor id eu nisl nunc mi ipsum. Ut etiam sit amet nisl purus in."}/>
             </FlexWrapper>
+            </Container>
         </StyledWorks>
     );
 };
 
 const StyledWorks = styled.section`
-  min-height: 100vh;
-  background-color: #b3f6e5;
+  
 `
