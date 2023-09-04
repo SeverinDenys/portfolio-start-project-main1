@@ -27,6 +27,7 @@ const StyledTestimony = styled.section `
   min-height: 50vh;
   background-color: #8fe57b;
 
+ 
   
   ${S.IconWrapper} {
     margin: 28px 0 72px;

@@ -1,82 +1,47 @@
 import React from 'react';
-import styled from "styled-components";
 import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper";
-import {theme} from "../../styles/Theme";
-import {font} from "../../styles/Common";
+import {S} from './Footer_Styles'
 
-export const Footer = () => {
+
+const socialItemsData = [
+
+    {
+        iconId: 'instagram',
+    },
+
+    {
+        iconId: 'telegram',
+    },
+
+    {
+        iconId: 'vk',
+    },
+
+    {
+        iconId: 'linkedin',
+    }
+
+]
+export const Footer: React.FC = () => {
     return (
-        <StyledFooter>
+        <S.Footer>
             <FlexWrapper direction={'column'} align={'center'}>
-            <Name>Denys</Name>
-            <SocialList>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={'21px'} width={'21px'} viewBox={'0 0 21px 21px'} iconId={'instagram'}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={'21px'} width={'21px'} viewBox={'0 0 21px 21px'} iconId={'telegram'}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={'21px'} width={'21px'} viewBox={'0 0 21px 21px'} iconId={'vk'}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={'21px'} width={'21px'} viewBox={'0 0 21px 21px'} iconId={'linkedin'}/>
-                    </SocialLink>
-                </SocialItem>
-            </SocialList>
-            <Copyright>All Rights for portfolio webpage structure and design owned by SVETLANA DYABLO 2023. It-incubator</Copyright>
+            <S.Name>Denys</S.Name>
+            <S.SocialList>
+                {socialItemsData.map((s, index)=> {
+                    return (
+                    <S.SocialItem key={index}>
+                        <S.SocialLink>
+                            <Icon height={'21px'} width={'21px'} viewBox={'0 0 21px 21px'} iconId={s.iconId}/>
+                        </S.SocialLink>
+                    </S.SocialItem>
+                    )
+                })}
+            </S.SocialList>
+            <S.Copyright>All Rights for portfolio webpage structure and design owned by SVETLANA DYABLO 2023. It-incubator</S.Copyright>
             </FlexWrapper>
-        </StyledFooter>
+        </S.Footer>
     );
 };
 
-const StyledFooter = styled.footer`
-  background-color: ${theme.colors.primaryBg};
-  padding: 40px 0;
-`
-const Name = styled.span`
-  ${font({family: "'Josefin Sans',sans-serif", weight: 700, Fmax: 22, Fmin: 16})}
-  letter-spacing: 3px; 
-  
-  
-`
-const SocialList = styled.ul`
-  display: flex;
-  gap: 20px;
-  margin: 30px 0;
-  
-`
-const SocialLink = styled.a`
-  background-color: rgba(255,255,255, 0.1);
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: ${theme.colors.accent};
-  
-  &:hover {
-    color: ${theme.colors.primaryBg};
-    transform: translateY(-4px);
-  }
-`
-const Copyright = styled.small`
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
-  opacity: 0.5;
-`
-const SocialItem = styled.small`
-  
-`
